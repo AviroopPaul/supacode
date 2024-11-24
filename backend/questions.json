@@ -1,0 +1,313 @@
+{
+  "arrays": [
+    {
+      "id": 1,
+      "title": "Two Sum",
+      "difficulty": "Easy",
+      "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+      "examples": [
+        "Input: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0, 1]."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Maximum Subarray",
+      "difficulty": "Medium",
+      "description": "Given an integer array nums, find the contiguous subarray with the largest sum and return its sum.",
+      "examples": [
+        "Input: nums = [-2,1,-3,4,-1,2,1,-5,4]\nOutput: 6\nExplanation: The subarray [4,-1,2,1] has the largest sum 6."
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Container With Most Water",
+      "difficulty": "Medium",
+      "description": "Given n non-negative integers representing an array of heights, find two lines that together with the x-axis forms a container that holds the most water.",
+      "examples": [
+        "Input: height = [1,8,6,2,5,4,8,3,7]\nOutput: 49\nExplanation: The maximum area is obtained by selecting height[1] = 8 and height[8] = 7."
+      ]
+    },
+    {
+      "id": 9,
+      "title": "3Sum",
+      "difficulty": "Medium",
+      "description": "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.",
+      "examples": [
+        "Input: nums = [-1,0,1,2,-1,-4]\nOutput: [[-1,-1,2],[-1,0,1]]"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Merge Sorted Array",
+      "difficulty": "Easy",
+      "description": "Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.",
+      "examples": [
+        "Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3\nOutput: [1,2,2,3,5,6]"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Best Time to Buy and Sell Stock",
+      "difficulty": "Easy",
+      "description": "Given an array prices where prices[i] is the price of a given stock on the ith day, maximize your profit by choosing a single day to buy and a single day to sell.",
+      "examples": [
+        "Input: prices = [7,1,5,3,6,4]\nOutput: 5\nExplanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5."
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Product of Array Except Self",
+      "difficulty": "Medium",
+      "description": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].",
+      "examples": [
+        "Input: nums = [1,2,3,4]\nOutput: [24,12,8,6]"
+      ]
+    }
+  ],
+  "strings": [
+    {
+      "id": 3,
+      "title": "Valid Palindrome",
+      "difficulty": "Easy",
+      "description": "Given a string s, return true if it is a palindrome, considering only alphanumeric characters and ignoring cases.",
+      "examples": [
+        "Input: s = 'A man, a plan, a canal: Panama'\nOutput: true\nExplanation: 'amanaplanacanalpanama' is a palindrome."
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Longest Substring Without Repeating Characters",
+      "difficulty": "Medium",
+      "description": "Given a string s, find the length of the longest substring without repeating characters.",
+      "examples": [
+        "Input: s = 'abcabcbb'\nOutput: 3\nExplanation: The answer is 'abc', with the length of 3."
+      ]
+    },
+    {
+      "id": 12,
+      "title": "String to Integer (atoi)",
+      "difficulty": "Medium",
+      "description": "Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer.",
+      "examples": [
+        "Input: s = '42'\nOutput: 42"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Longest Common Prefix",
+      "difficulty": "Easy",
+      "description": "Write a function to find the longest common prefix string amongst an array of strings.",
+      "examples": [
+        "Input: strs = ['flower','flow','flight']\nOutput: 'fl'"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Valid Anagram",
+      "difficulty": "Easy",
+      "description": "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
+      "examples": [
+        "Input: s = 'anagram', t = 'nagaram'\nOutput: true"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Group Anagrams",
+      "difficulty": "Medium",
+      "description": "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
+      "examples": [
+        "Input: strs = ['eat','tea','tan','ate','nat','bat']\nOutput: [['bat'],['nat','tan'],['ate','eat','tea']]"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Encode and Decode Strings",
+      "difficulty": "Medium",
+      "description": "Design an algorithm to encode a list of strings to a string and decode a single string to a list of strings.",
+      "examples": [
+        "Input: ['Hello','World']\nOutput: 'Hello#World'\nExplanation: Use a special character to separate strings"
+      ]
+    }
+  ],
+  "trees": [
+    {
+      "id": 15,
+      "title": "Binary Tree Level Order Traversal",
+      "difficulty": "Medium",
+      "description": "Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).",
+      "examples": [
+        "Input: root = [3,9,20,null,null,15,7]\nOutput: [[3],[9,20],[15,7]]"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Validate Binary Search Tree",
+      "difficulty": "Medium",
+      "description": "Given the root of a binary tree, determine if it is a valid binary search tree (BST).",
+      "examples": [
+        "Input: root = [2,1,3]\nOutput: true"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Maximum Depth of Binary Tree",
+      "difficulty": "Easy",
+      "description": "Given the root of a binary tree, return its maximum depth (the number of nodes along the longest path from root to leaf).",
+      "examples": [
+        "Input: root = [3,9,20,null,null,15,7]\nOutput: 3"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Same Tree",
+      "difficulty": "Easy",
+      "description": "Given the roots of two binary trees p and q, check if they are the same tree (structurally identical and nodes have the same value).",
+      "examples": [
+        "Input: p = [1,2,3], q = [1,2,3]\nOutput: true"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Serialize and Deserialize Binary Tree",
+      "difficulty": "Hard",
+      "description": "Design an algorithm to serialize and deserialize a binary tree.",
+      "examples": [
+        "Input: root = [1,2,3,null,null,4,5]\nOutput: [1,2,3,null,null,4,5]"
+      ]
+    }
+  ],
+  "dynamic-programming": [
+    {
+      "id": 17,
+      "title": "Climbing Stairs",
+      "difficulty": "Easy",
+      "description": "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+      "examples": [
+        "Input: n = 3\nOutput: 3\nExplanation: There are three ways to climb to the top: 1 step + 1 step + 1 step, 1 step + 2 steps, 2 steps + 1 step"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Coin Change",
+      "difficulty": "Medium",
+      "description": "Given an array of coins and a total amount of money, return the fewest number of coins needed to make up that amount.",
+      "examples": [
+        "Input: coins = [1,2,5], amount = 11\nOutput: 3\nExplanation: 11 = 5 + 5 + 1"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "House Robber",
+      "difficulty": "Medium",
+      "description": "Given an array of integers representing money in houses, determine maximum amount you can rob without alerting police (can't rob adjacent houses).",
+      "examples": [
+        "Input: nums = [2,7,9,3,1]\nOutput: 12\nExplanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1)"
+      ]
+    },
+    {
+      "id": 31,
+      "title": "Longest Increasing Subsequence",
+      "difficulty": "Medium",
+      "description": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+      "examples": [
+        "Input: nums = [10,9,2,5,3,7,101,18]\nOutput: 4\nExplanation: The longest increasing subsequence is [2,3,7,101]"
+      ]
+    }
+  ],
+  "linked-lists": [
+    {
+      "id": 19,
+      "title": "Reverse Linked List",
+      "difficulty": "Easy",
+      "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+      "examples": [
+        "Input: head = [1,2,3,4,5]\nOutput: [5,4,3,2,1]"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Merge Two Sorted Lists",
+      "difficulty": "Easy",
+      "description": "Merge two sorted linked lists and return it as a sorted list.",
+      "examples": [
+        "Input: l1 = [1,2,4], l2 = [1,3,4]\nOutput: [1,1,2,3,4,4]"
+      ]
+    },
+    {
+      "id": 32,
+      "title": "Linked List Cycle",
+      "difficulty": "Easy",
+      "description": "Given head of a linked list, determine if the linked list has a cycle in it using O(1) extra space.",
+      "examples": [
+        "Input: head = [3,2,0,-4], pos = 1\nOutput: true\nExplanation: There is a cycle in the linked list, where tail connects to the second node."
+      ]
+    },
+    {
+      "id": 33,
+      "title": "Remove Nth Node From End",
+      "difficulty": "Medium",
+      "description": "Given the head of a linked list, remove the nth node from the end of the list and return its head.",
+      "examples": [
+        "Input: head = [1,2,3,4,5], n = 2\nOutput: [1,2,3,5]"
+      ]
+    }
+  ],
+  "graphs": [
+    {
+      "id": 21,
+      "title": "Number of Islands",
+      "difficulty": "Medium",
+      "description": "Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.",
+      "examples": [
+        "Input: grid = [['1','1','0','0','0'],['1','1','0','0','0'],['0','0','1','0','0'],['0','0','0','1','1']]\nOutput: 3"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Course Schedule",
+      "difficulty": "Medium",
+      "description": "Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?",
+      "examples": [
+        "Input: numCourses = 2, prerequisites = [[1,0]]\nOutput: true\nExplanation: There are 2 courses to take. To take course 1 you should have finished course 0."
+      ]
+    },
+    {
+      "id": 34,
+      "title": "Clone Graph",
+      "difficulty": "Medium",
+      "description": "Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph.",
+      "examples": [
+        "Input: adjList = [[2,4],[1,3],[2,4],[1,3]]\nOutput: [[2,4],[1,3],[2,4],[1,3]]"
+      ]
+    },
+    {
+      "id": 35,
+      "title": "Pacific Atlantic Water Flow",
+      "difficulty": "Medium",
+      "description": "Given an m x n matrix of heights, find all cells that can flow to both Pacific and Atlantic oceans.",
+      "examples": [
+        "Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]\nOutput: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]"
+      ]
+    }
+  ],
+  "heap": [
+    {
+      "id": 36,
+      "title": "Merge K Sorted Lists",
+      "difficulty": "Hard",
+      "description": "Given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list.",
+      "examples": [
+        "Input: lists = [[1,4,5],[1,3,4],[2,6]]\nOutput: [1,1,2,3,4,4,5,6]"
+      ]
+    },
+    {
+      "id": 37,
+      "title": "Top K Frequent Elements",
+      "difficulty": "Medium",
+      "description": "Given an integer array nums and an integer k, return the k most frequent elements.",
+      "examples": [
+        "Input: nums = [1,1,1,2,2,3], k = 2\nOutput: [1,2]"
+      ]
+    }
+  ]
+} 
