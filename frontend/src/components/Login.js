@@ -122,7 +122,7 @@ const Login = () => {
         </div>
 
         <div className="mt-8 flex justify-center rounded-lg">
-          <img src="https://private-user-images.githubusercontent.com/72408663/389268753-4eedf661-8568-4777-be99-26cad8dc2b97.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzI0NjE5MjQsIm5iZiI6MTczMjQ2MTYyNCwicGF0aCI6Ii83MjQwODY2My8zODkyNjg3NTMtNGVlZGY2NjEtODU2OC00Nzc3LWJlOTktMjZjYWQ4ZGMyYjk3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMjQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTI0VDE1MjAyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTViOTllYjA4Y2NkODM3NGFiYmVjMzllOWIzNzdmMGI0MzdjNGVmOTc3ZGIxZWNkNWY3ZmYxYjFkYjI4NWVlYzImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.R1DAVu3vmnVSTmD9La1h63MIY5KUWk4MF0bAZRsqEfo" alt="Product Demo" className="rounded-lg shadow-lg max-w-full h-auto" />
+          <img src="https://res.cloudinary.com/dami7wcek/image/upload/v1732462649/DemoImage_gtubys.png" alt="Product Demo" className="rounded-lg shadow-lg max-w-full h-auto" />
         </div>
       </div>
 

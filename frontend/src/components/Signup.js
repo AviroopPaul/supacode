@@ -7,7 +7,7 @@ import {
   SunIcon,
   MoonIcon,
 } from "@heroicons/react/24/outline";
-import Loader from './Loader';
+import Loader from "./Loader";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -21,22 +21,26 @@ const Signup = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
       setDarkMode(true);
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
       setDarkMode(false);
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
   const toggleDarkMode = () => {
     if (darkMode) {
-      localStorage.theme = 'light';
-      document.documentElement.classList.remove('dark');
+      localStorage.theme = "light";
+      document.documentElement.classList.remove("dark");
     } else {
-      localStorage.theme = 'dark';
-      document.documentElement.classList.add('dark');
+      localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
     }
     setDarkMode(!darkMode);
   };
@@ -117,27 +121,46 @@ const Signup = () => {
       <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-20 py-12 text-gray-900 dark:text-white">
         <div className="flex items-center mb-8">
           <CodeBracketIcon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-          <h1 className="ml-2 text-4xl font-bold text-gray-900 dark:text-white"> <span className="text-orange-500 dark:text-orange-400">Supa</span>Code</h1>
+          <h1 className="ml-2 text-4xl font-bold text-gray-900 dark:text-white">
+            {" "}
+            <span className="text-orange-500 dark:text-orange-400">Supa</span>
+            Code
+          </h1>
         </div>
 
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
           Master Data Structures & Algorithms
           <br />
-          <span className="text-indigo-600 dark:text-indigo-400">One Problem at a Time</span>
+          <span className="text-indigo-600 dark:text-indigo-400">
+            One Problem at a Time
+          </span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm transition-colors duration-200">
-              <div className="text-indigo-600 dark:text-indigo-400 mb-4">{feature.icon}</div>
-              <h3 className="text-lg font-semibold mb-2 dark:text-white">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+            <div
+              key={index}
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm transition-colors duration-200"
+            >
+              <div className="text-indigo-600 dark:text-indigo-400 mb-4">
+                {feature.icon}
+              </div>
+              <h3 className="text-lg font-semibold mb-2 dark:text-white">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>
 
         <div className="mt-8 flex justify-centerrounded-lg">
-          <img src='https://private-user-images.githubusercontent.com/72408663/389268753-4eedf661-8568-4777-be99-26cad8dc2b97.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzI0NjE5MjQsIm5iZiI6MTczMjQ2MTYyNCwicGF0aCI6Ii83MjQwODY2My8zODkyNjg3NTMtNGVlZGY2NjEtODU2OC00Nzc3LWJlOTktMjZjYWQ4ZGMyYjk3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMjQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTI0VDE1MjAyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTViOTllYjA4Y2NkODM3NGFiYmVjMzllOWIzNzdmMGI0MzdjNGVmOTc3ZGIxZWNkNWY3ZmYxYjFkYjI4NWVlYzImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.R1DAVu3vmnVSTmD9La1h63MIY5KUWk4MF0bAZRsqEfo' alt="Product Demo" className="rounded-lg shadow-lg max-w-full h-auto" />
+          <img
+            src="https://res.cloudinary.com/dami7wcek/image/upload/v1732462649/DemoImage_gtubys.png"
+            alt="Product Demo"
+            className="rounded-lg shadow-lg max-w-full h-auto"
+          />
         </div>
       </div>
 
@@ -229,7 +252,9 @@ const Signup = () => {
             </div>
 
             {error && (
-              <div className="text-red-500 dark:text-red-400 text-sm text-center">{error}</div>
+              <div className="text-red-500 dark:text-red-400 text-sm text-center">
+                {error}
+              </div>
             )}
             {success && (
               <div className="text-green-500 dark:text-green-400 text-sm text-center">
