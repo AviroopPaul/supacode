@@ -3,6 +3,16 @@
 ## Overview
 Supacode is an application designed to help users practice Data Structures and Algorithms (DSA) through interactive challenges and exercises. The app provides a platform for users to enhance their coding skills and prepare for technical interviews.
 
+
+![image](https://github.com/user-attachments/assets/cdf5d5ec-f996-46b8-a6f6-cb3e75732b2c)
+
+![image](https://github.com/user-attachments/assets/f6126716-17f8-46ea-a127-abec3a758b07)
+
+![image](https://github.com/user-attachments/assets/4eedf661-8568-4777-be99-26cad8dc2b97)
+
+
+
+
 ## Backend
 The backend of Supacode is built using **Express.js**, a fast and minimalist web framework for Node.js. It handles API requests, user authentication, and data management.
 
