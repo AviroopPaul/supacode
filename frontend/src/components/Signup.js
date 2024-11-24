@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { CodeBracketIcon, CommandLineIcon, CpuChipIcon } from '@heroicons/react/24/outline';
+import {
+  CodeBracketIcon,
+  CommandLineIcon,
+  CpuChipIcon,
+} from "@heroicons/react/24/outline";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -15,18 +19,19 @@ const Signup = () => {
     {
       icon: <CodeBracketIcon className="h-6 w-6" />,
       title: "Multiple Languages",
-      description: "Practice in Python, Java, JavaScript, C++, Go, and Ruby"
+      description: "Practice in Python, Java, JavaScript, C++, Go, and Ruby",
     },
     {
       icon: <CommandLineIcon className="h-6 w-6" />,
       title: "Built-in Code Editor",
-      description: "Powerful editor with syntax highlighting and auto-completion"
+      description:
+        "Powerful editor with syntax highlighting and auto-completion",
     },
     {
       icon: <CpuChipIcon className="h-6 w-6" />,
       title: "DSA Focus",
-      description: "Curated collection of DSA problems with detailed solutions"
-    }
+      description: "Curated collection of DSA problems with detailed solutions",
+    },
   ];
 
   const handleSubmit = async (e) => {
@@ -39,8 +44,11 @@ const Signup = () => {
       return;
     }
 
+    const baseUrl = process.env.REACT_APP_BASE_URL;
+    console.log(baseUrl);
+
     try {
-      const response = await fetch("/api/signup", {
+      const response = await fetch(`${baseUrl}/api/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,18 +79,17 @@ const Signup = () => {
           <CodeBracketIcon className="h-8 w-8 text-indigo-600" />
           <h1 className="ml-2 text-4xl font-bold text-gray-900">Supacode</h1>
         </div>
-        
+
         <h2 className="text-3xl font-bold text-gray-900 mb-8">
-          Master Data Structures & Algorithms<br />
+          Master Data Structures & Algorithms
+          <br />
           <span className="text-indigo-600">One Problem at a Time</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {features.map((feature, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="text-indigo-600 mb-4">
-                {feature.icon}
-              </div>
+              <div className="text-indigo-600 mb-4">{feature.icon}</div>
               <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
             </div>
@@ -182,7 +189,9 @@ const Signup = () => {
               <div className="text-red-500 text-sm text-center">{error}</div>
             )}
             {success && (
-              <div className="text-green-500 text-sm text-center">{success}</div>
+              <div className="text-green-500 text-sm text-center">
+                {success}
+              </div>
             )}
 
             <div>
@@ -196,10 +205,7 @@ const Signup = () => {
           </form>
 
           <div className="text-center">
-            <Link
-              to="/login"
-              className="text-indigo-600 hover:text-indigo-500"
-            >
+            <Link to="/login" className="text-indigo-600 hover:text-indigo-500">
               Already have an account? Sign in
             </Link>
           </div>

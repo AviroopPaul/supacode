@@ -29,13 +29,16 @@ const CodeEditor = () => {
     { id: 'hc-black', name: 'High Contrast' },
   ];
 
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+  console.log(baseUrl);
+
   const runCode = async () => {
     try {
       setIsLoading(true);
       setIsOutputVisible(true);
-      
-      const response = await fetch('http://localhost:3001/api/execute', {
-        method: 'POST',
+
+      const response = await fetch(`${baseUrl}/api/execute`, {
+        method: "POST",
         headers: {
           'Content-Type': 'application/json',
         },
@@ -170,7 +173,7 @@ const CodeEditor = () => {
 
           {/* Output Console */}
           {isOutputVisible && (
-            <div className="h-32 bg-[#1e1e1e] border-t border-gray-700 p-4 transform transition-transform duration-300 ease-in-out translate-y-0"
+            <div className="h-1/4 bg-[#1e1e1e] border-t border-gray-700 p-4 transform transition-transform duration-300 ease-in-out translate-y-0"
               style={{
                 position: 'absolute',
                 bottom: 0,
