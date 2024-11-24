@@ -93,7 +93,8 @@ const Login = () => {
       <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-20 py-12">
         <div className="flex items-center mb-8">
           <CodeBracketIcon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-          <h1 className="ml-2 text-4xl font-bold text-gray-900 dark:text-white">Supacode</h1>
+          <h1 className="ml-2 text-4xl font-bold text-gray-900 dark:text-white">
+            <span className="text-orange-500 dark:text-orange-400">Supa</span>Code</h1>
         </div>
         
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">

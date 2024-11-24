@@ -117,8 +117,16 @@ app.post('/api/execute', async (req, res) => {
         command = `node ${filename}.js`;
         break;
       case 'java':
-        await fs.writeFile(`${filename}.java`, code);
-        command = `javac ${filename}.java && java ${filename}`;
+        // Extract class name from Java code
+        const className = extractJavaClassName(code);
+        const javaFilename = `${filename}_${className}`;
+        await fs.writeFile(`${javaFilename}.java`, code);
+        // Use full path to javac and java (modify these paths according to your system)
+        command = `/usr/lib/jvm/java-11-openjdk/bin/javac ${javaFilename}.java && /usr/lib/jvm/java-11-openjdk/bin/java -cp ${path.dirname(javaFilename)} ${className}`;
+        break;
+      case 'cpp':
+        await fs.writeFile(`${filename}.cpp`, code);
+        command = `g++ ${filename}.cpp -o ${filename} && ${filename}`;
         break;
       default:
         throw new Error('Unsupported language');
@@ -127,7 +135,17 @@ app.post('/api/execute', async (req, res) => {
     exec(command, { timeout: 5000 }, async (error, stdout, stderr) => {
       // Cleanup temp files
       try {
-        await fs.unlink(`${filename}${getFileExtension(language)}`);
+        const fileToDelete = `${filename}${getFileExtension(language)}`;
+        await fs.unlink(fileToDelete);
+        // Additional cleanup for compiled files
+        if (language === 'cpp') {
+          await fs.unlink(filename);
+        }
+        if (language === 'java') {
+          const className = extractJavaClassName(code);
+          await fs.unlink(`${filename}_${className}.class`);
+          await fs.unlink(`${filename}_${className}.java`);
+        }
       } catch (e) {
         console.error('Cleanup error:', e);
       }
@@ -143,11 +161,18 @@ app.post('/api/execute', async (req, res) => {
   }
 });
 
+// Add this helper function for Java class name extraction
+function extractJavaClassName(code) {
+  const classMatch = code.match(/public\s+class\s+(\w+)/);
+  return classMatch ? classMatch[1] : 'Main';
+}
+
 function getFileExtension(language) {
   const extensions = {
     python: '.py',
     javascript: '.js',
-    java: '.java'
+    java: '.java',
+    cpp: '.cpp'
   };
   return extensions[language] || '';
 }
