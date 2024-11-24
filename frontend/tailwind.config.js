@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        sfpro: ["San Francisco Pro", "sans-serif"],
       },
       colors: {
         gray: {
