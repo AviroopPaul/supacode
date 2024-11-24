@@ -7,6 +7,7 @@ import {
   SunIcon,
   MoonIcon,
 } from "@heroicons/react/24/outline";
+import Loader from './Loader';
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ const Signup = () => {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -68,6 +70,8 @@ const Signup = () => {
       return;
     }
 
+    setIsLoading(true);
+
     const baseUrl = process.env.REACT_APP_BASE_URL;
     console.log(baseUrl);
 
@@ -92,6 +96,8 @@ const Signup = () => {
       }, 2000);
     } catch (err) {
       setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -230,9 +236,10 @@ const Signup = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors duration-200"
+                disabled={isLoading}
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors duration-200 disabled:opacity-50"
               >
-                Create Account
+                {isLoading ? <Loader /> : "Create Account"}
               </button>
             </div>
           </form>
