@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {
   CodeBracketIcon,
   CommandLineIcon,
   CpuChipIcon,
+  SunIcon,
+  MoonIcon,
 } from "@heroicons/react/24/outline";
 
 const Signup = () => {
@@ -14,6 +16,28 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    if (darkMode) {
+      localStorage.theme = 'light';
+      document.documentElement.classList.remove('dark');
+    } else {
+      localStorage.theme = 'dark';
+      document.documentElement.classList.add('dark');
+    }
+    setDarkMode(!darkMode);
+  };
 
   const features = [
     {
@@ -72,39 +96,48 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
-      {/* Left side - Landing content */}
-      <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-20 py-12">
+    <div className="min-h-screen flex bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+      <button
+        onClick={toggleDarkMode}
+        className="fixed top-4 right-4 p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200"
+      >
+        {darkMode ? (
+          <SunIcon className="h-6 w-6 text-yellow-500" />
+        ) : (
+          <MoonIcon className="h-6 w-6 text-gray-700" />
+        )}
+      </button>
+
+      <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-20 py-12 text-gray-900 dark:text-white">
         <div className="flex items-center mb-8">
-          <CodeBracketIcon className="h-8 w-8 text-indigo-600" />
-          <h1 className="ml-2 text-4xl font-bold text-gray-900">Supacode</h1>
+          <CodeBracketIcon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+          <h1 className="ml-2 text-4xl font-bold text-gray-900 dark:text-white">Supacode</h1>
         </div>
 
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
           Master Data Structures & Algorithms
           <br />
-          <span className="text-indigo-600">One Problem at a Time</span>
+          <span className="text-indigo-600 dark:text-indigo-400">One Problem at a Time</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="text-indigo-600 mb-4">{feature.icon}</div>
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm transition-colors duration-200">
+              <div className="text-indigo-600 dark:text-indigo-400 mb-4">{feature.icon}</div>
+              <h3 className="text-lg font-semibold mb-2 dark:text-white">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Right side - Signup form */}
-      <div className="hidden lg:flex lg:w-1/3 items-center justify-center bg-white">
+      <div className="hidden lg:flex lg:w-1/3 items-center justify-center bg-white dark:bg-gray-800 transition-colors duration-200">
         <div className="max-w-md w-full space-y-8 px-10">
           <div>
-            <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-bold text-gray-900 dark:text-white">
               Create your account
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
+            <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
               Start your DSA journey today
             </p>
           </div>
@@ -115,7 +148,7 @@ const Signup = () => {
                 <input
                   type="email"
                   required
-                  className="appearance-none rounded-t-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none rounded-t-md relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -125,7 +158,7 @@ const Signup = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   required
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -142,7 +175,7 @@ const Signup = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-5 h-5 text-gray-500"
+                      className="w-5 h-5 text-gray-500 dark:text-gray-400"
                     >
                       <path
                         strokeLinecap="round"
@@ -157,7 +190,7 @@ const Signup = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-5 h-5 text-gray-500"
+                      className="w-5 h-5 text-gray-500 dark:text-gray-400"
                     >
                       <path
                         strokeLinecap="round"
@@ -177,7 +210,7 @@ const Signup = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   required
-                  className="appearance-none rounded-b-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none rounded-b-md relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Confirm Password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
@@ -186,10 +219,10 @@ const Signup = () => {
             </div>
 
             {error && (
-              <div className="text-red-500 text-sm text-center">{error}</div>
+              <div className="text-red-500 dark:text-red-400 text-sm text-center">{error}</div>
             )}
             {success && (
-              <div className="text-green-500 text-sm text-center">
+              <div className="text-green-500 dark:text-green-400 text-sm text-center">
                 {success}
               </div>
             )}
@@ -197,7 +230,7 @@ const Signup = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors duration-200"
               >
                 Create Account
               </button>
